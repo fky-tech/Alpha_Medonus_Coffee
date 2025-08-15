@@ -363,19 +363,19 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 px-10">
                     <div class="bg-white p-8 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 border border-amber-600/20">
                         <h3 class="text-2xl font-bold text-amber-600 mb-4">Quality</h3>
-                        <p class="text-gray-700 leading-relaxed mb-4 text-center md:text-justify">
+                        <p class="text-gray-700 leading-relaxed mb-4 text-center">
                             Coffee quality is the result of a careful, intentional process that spans across multiple stages, each one influencing the final cup.
                         </p>
-                        <p class="text-gray-600 text-sm text-center md:text-justify"> We give great attention from the very beginning, attention to detail is crucial, ensuring that the plant is nurtured with care and that it produces cherries of the highest potential. </p>
+                        <p class="text-gray-600 text-sm text-center"> We give great attention from the very beginning, attention to detail is crucial, ensuring that the plant is nurtured with care and that it produces cherries of the highest potential. </p>
                     </div>
                     <div class="bg-white p-8 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 border border-amber-600/20">
                         <h3 class="text-2xl font-bold text-amber-600 mb-4">Consistent</h3>
-                        <p class="text-gray-700 leading-relaxed mb-4 text-center md:text-justify"> At the heart of great coffee is consistency ensuring that each step is executed with care, expertise, and attention to detail. </p>
-                        <p class="text-gray-600 text-sm text-center md:text-justify"> So we can prepare the same level of quality of coffee every year. This ensures traceability and quality every single crop we produce. We engage in long-term supplying of our coffee with our clients. </p>
+                        <p class="text-gray-700 leading-relaxed mb-4 text-center"> At the heart of great coffee is consistency ensuring that each step is executed with care, expertise, and attention to detail. </p>
+                        <p class="text-gray-600 text-sm text-center"> So we can prepare the same level of quality of coffee every year. This ensures traceability and quality every single crop we produce. We engage in long-term supplying of our coffee with our clients. </p>
                     </div>
                     <div class="bg-white p-8 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 border border-amber-600/20">
                         <h3 class="text-2xl font-bold text-amber-600 mb-4">Community-Based Farming Practices</h3>
-                        <p class="text-gray-700 leading-relaxed mb-4 text-center md:text-justify"> We strongly emphasize on community-based farming practices, ensuring that both the land and the people who work on it thrive. </p>
+                        <p class="text-gray-700 leading-relaxed mb-4 text-center"> We strongly emphasize on community-based farming practices, ensuring that both the land and the people who work on it thrive. </p>
                         <ul class="text-gray-600 text-sm list-disc list-inside text-left">
                             <li>Empowering Local Farmers</li>
                             <li>Community Investment</li>
@@ -862,9 +862,8 @@
 
             carouselObserver.observe(carousel.parentElement.parentElement);
 
-            // Intersection Observer for the counter
             const counters = document.querySelectorAll('.counter-value');
-            
+
             const animateCounter = (counter) => {
                 const target = +counter.getAttribute('data-target');
                 let count = 0;
@@ -876,7 +875,12 @@
                         counter.innerText = Math.ceil(count);
                         requestAnimationFrame(updateCounter);
                     } else {
-                        counter.innerText = target + '+';
+                        // Check if the target is 24 (for "Hour Support") to exclude the '+'
+                        if (target === 24) {
+                            counter.innerText = target;
+                        } else {
+                            counter.innerText = target + '+';
+                        }
                     }
                 };
                 updateCounter();
@@ -896,7 +900,6 @@
             counters.forEach(counter => {
                 observer.observe(counter);
             });
-
             // Tabs for coffee products
             const coffeeTabs = document.querySelectorAll('.coffee-tab');
             const coffeeContentContainer = document.getElementById('coffee-content-container');
@@ -905,7 +908,7 @@
                 sidama: {
                     title: 'Sidama Coffee',
                     description: 'Sidama coffee is celebrated for its balanced body and sweet, spicy aroma. Cultivated in the Sidama region of Ethiopia, it is a washed coffee known for its distinct citrus and floral character. The region\'s high altitudes and rich, fertile soil contribute to a complex flavor profile that includes notes of lemon, jasmine, and caramel. Our Sidama coffee is ethically sourced and meticulously processed to preserve its unique taste and aroma.',
-                    imageSrc: 'https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1287&q=80',
+                    imageSrc: '/sidamma.png',
                     alt: 'Sidama coffee beans from Ethiopia',
                     tastingNotes: ['Citrus', 'Jasmine', 'Caramel', 'Medium body', 'Bright acidity'],
                     elevation: '1500-2200m',
@@ -914,7 +917,7 @@
                 yirgacheffe: {
                     title: 'Yirgacheffe Coffee',
                     description: 'Yirgacheffe coffee is famous for its bright, clean, and floral flavor profile, often with a hint of jasmine and bergamot. It is a wet-processed coffee from the Yirgacheffe region, where it is grown at some of the highest altitudes in Ethiopia. The beans are known for their small size but big, vibrant taste. Our Yirgacheffe is a testament to the region\'s rich heritage and commitment to producing some of the world\'s most sought-after coffee.',
-                    imageSrc: 'https://images.unsplash.com/photo-1442512595331-e89e73853f31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
+                    imageSrc: '/yirga.png',
                     alt: 'Yirgacheffe coffee beans from Ethiopia',
                     tastingNotes: ['Floral', 'Bergamot', 'Lemon', 'Light body', 'High acidity'],
                     elevation: '1700-2200m',
@@ -923,7 +926,7 @@
                 harrar: {
                     title: 'Harrar Coffee',
                     description: 'Harrar is a wild, fruity, and bold coffee with a full body and a lingering finish. Grown in the Eastern Ethiopian highlands, it is a dry-processed coffee that often carries notes of blueberry, cocoa, and wine. The dry processing method gives it a distinctive, complex flavor that is highly prized by connoisseurs. Our Harrar coffee embodies the wild, untamed spirit of the region it comes from.',
-                    imageSrc: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
+                    imageSrc: '/harar.png',
                     alt: 'Harrar coffee beans from Ethiopia',
                     tastingNotes: ['Blueberry', 'Cocoa', 'Winey', 'Full body', 'Low acidity'],
                     elevation: '1400-2000m',
@@ -932,7 +935,7 @@
                 limu: {
                     title: 'Limu Coffee',
                     description: 'Limu coffee is a high-quality washed coffee grown in the southwest of Ethiopia. It is known for its balanced body and delicate, sweet flavor with a spicy and wine-like taste. The beans are medium-sized with a distinct green-blue color. Our Limu coffee is carefully cultivated to bring out its smooth, well-rounded character and subtle notes of citrus and chocolate.',
-                    imageSrc: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?ixlib=rb-4.0.3&auto=format&fit=crop&w=1169&q=80',
+                    imageSrc: '/limu.png',
                     alt: 'Limu coffee beans from Ethiopia',
                     tastingNotes: ['Citrus', 'Chocolate', 'Spicy', 'Medium body', 'Balanced acidity'],
                     elevation: '1100-1900m',
@@ -941,7 +944,7 @@
                 djimma: {
                     title: 'Djimma Coffee',
                     description: 'Djimma coffee is a wild and heavy-bodied coffee grown in the lowlands of Ethiopia. It is often dry-processed, which gives it a distinct fruity and wine-like flavor. While some coffee experts describe it as having an earthy or medicinal taste, our Djimma is selected for its smooth, pleasant, and full-bodied character, making it a great choice for a strong and satisfying brew.',
-                    imageSrc: 'https://images.unsplash.com/photo-1507133750040-4a8f57021571?ixlib=rb-4.0.3&auto=format&fit=crop&w=1287&q=80',
+                    imageSrc: 'jimma.png',
                     alt: 'Djimma coffee beans from Ethiopia',
                     tastingNotes: ['Fruity', 'Winey', 'Earthy', 'Full body', 'Medium acidity'],
                     elevation: '1200-1800m',
@@ -950,7 +953,7 @@
                 lekempti: {
                     title: 'Lekempti Coffee',
                     description: 'Lekempti coffee is a washed or dry-processed coffee from the Wollega region of Ethiopia. It is known for its pungent and tangy flavor profile, often with a heavy body and a uniquely wild, fruity taste. Our Lekempti coffee is chosen for its vibrant and distinctive character, offering a memorable and complex cup for those who appreciate bold flavors.',
-                    imageSrc: 'https://images.unsplash.com/photo-1514890547357-a9ee288728e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+                    imageSrc: '/lekem.png',
                     alt: 'Lekempti coffee beans from Ethiopia',
                     tastingNotes: ['Tangy', 'Fruity', 'Wild', 'Heavy body', 'Medium acidity'],
                     elevation: '1500-2100m',
@@ -970,7 +973,7 @@
                     coffeeContentContainer.innerHTML = `
                         <div class="relative md:flex items-center text-left bg-white rounded-lg p-6 shadow-xl space-y-6 md:space-y-0 md:space-x-8 animate-fade-in">
                             <div class="md:w-1/3">
-                                <img src="${content.imageSrc}" alt="${content.alt}" class="w-full h-full object-cover rounded-lg shadow-md" loading="lazy">
+                                <img src="${content.imageSrc}" alt="${content.alt}" class="w-full h-80 object-cover rounded-lg shadow-md" loading="lazy">
                             </div>
                             <div class="md:w-2/3">
                                 <h3 class="text-2xl font-bold text-amber-600 mb-4 text-center md:text-start">${content.title}</h3>
@@ -993,9 +996,11 @@
                                     </div>
                                 </div>
                                 
-                                <button class="ms-9 md:ms-0 mt-6 px-6 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-lg transition duration-300 shadow-md focus:outline-none focus:ring-2 focus:ring-amber-600 focus:ring-offset-2">
-                                    Request Samples
-                                </button>
+                                <div class="mt-6 flex justify-center md:justify-start">
+                                    <button class="px-6 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-lg transition duration-300 shadow-md focus:outline-none focus:ring-2 focus:ring-amber-600 focus:ring-offset-2">
+                                        Request Samples
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     `;
