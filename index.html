@@ -3,21 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alpha Medonus Coffee</title>
+    <meta name="description" content="Premium Ethiopian coffee sourced from the highlands, roasted to perfection, and delivered worldwide. Experience our sustainably grown coffee varieties.">
+    <meta name="keywords" content="Ethiopian coffee, specialty coffee, Sidama, Yirgacheffe, Harrar, Limu, Djimma, Lekempti, sustainable coffee">
+    <meta name="author" content="Alpha Medonus Business Group">
+    <meta property="og:title" content="Alpha Medonus Coffee - Premium Ethiopian Coffee">
+    <meta property="og:description" content="Sustainably sourced from the highlands of Ethiopia, roasted to perfection, and delivered worldwide.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.alphamedonus.com">
+    <meta property="og:image" content="https://www.alphamedonus.com/hero_1.avif">
+    
+    <title>Alpha Medonus Coffee | Premium Ethiopian Coffee</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Sansation:wght@400;700&family=Roboto+Flex:wght@400;700&display=swap" as="style">
+    <link rel="preload" href="logo.png" as="image">
+    <link rel="preload" href="hero_1.avif" as="image">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.alphamedonus.com">
+    
+    <!-- CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sansation:wght@400;700&family=Roboto+Flex:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            --primary-color: #d97706; /* amber-600 */
+            --primary-hover: #b45309; /* amber-700 */
+            --secondary-color: #1f2937; /* gray-800 */
+            --light-bg: #f9fafb; /* gray-50 */
+        }
+        
         html {
+            scroll-behavior: smooth;
             scroll-padding-top: 100px;
         }
+        
+        body {
+            font-family: 'Roboto Flex', sans-serif;
+            color: #374151; /* gray-700 */
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Sansation', sans-serif;
+            line-height: 1.3;
+        }
+        
         #carousel-slides {
             display: flex;
             transition: transform 0.5s ease;
         }
+        
         #carousel-slides img {
             flex-shrink: 0;
             width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
-
+        
         /* Mobile menu styles */
         .mobile-menu {
             max-height: 0;
@@ -28,956 +77,1095 @@
         .mobile-menu.open {
             max-height: 500px;
         }
+        
+        /* Custom style to handle fixed header padding content */
+        main {
+            padding-top: 100px;
+        }
+        
+        /* Hero section styles */
+        .hero-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 1s ease-in-out;
+        }
+        
+        /* Animation classes */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        
+        /* Focus styles for accessibility */
+        a:focus, button:focus, input:focus, textarea:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+        
+        /* Skip to content link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        /* Lazy loading for images */
+        img.lazy {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        img.lazy.loaded {
+            opacity: 1;
+        }
+        
+        /* Performance optimizations */
+        .will-change-transform {
+            will-change: transform;
+        }
+        
+        /* Print styles */
+        @media print {
+            nav, footer, .no-print {
+                display: none !important;
+            }
+            
+            body {
+                background: white !important;
+                color: black !important;
+                font-size: 12pt;
+            }
+            
+            a::after {
+                content: " (" attr(href) ")";
+                font-size: 0.8em;
+                font-weight: normal;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-100">
-    <header class="bg-white py-4 px-8 shadow-md sticky top-0 z-50">
-        <div class="container mx-auto flex flex-col justify-between items-center">
-                <div class="flex items-center justify-between w-full">
-                <div class="flex items-center space-x-3">
-                    <img src="logo.png" alt="Alpha Medonus Logo" class="h-10">
-                    <a href="#" class="font-bold text-2xl text-[#D95C15]">Alpha Medonus Business Group</a>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header -->
+    <header>
+        <nav class="fixed w-full top-0 left-0 z-50 transition-all duration-300 rounded-b-lg">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 rounded-b-lg">
+                <div id="nav-rectangle" class="mt-3 backdrop-blur-xl bg-white/80 w-full max-w-7xl mx-auto transition-colors duration-300 rounded-b-lg shadow-lg">
+                    <div class="flex justify-between items-center px-6 py-3">
+                        <div class="hidden md:flex items-center space-x-8 font-roboto-flex">
+                            <a href="#home" class="text-gray-900 hover:text-amber-600 transition-colors text-sm font-medium">Home</a>
+                            <a href="#about" class="text-gray-900 hover:text-amber-600 transition-colors text-sm font-medium">About Us</a>
+                            <a href="#coffees" class="text-gray-900 hover:text-amber-600 transition-colors text-sm font-medium">Coffees</a>
+                        </div>
+
+                        <div class="flex items-center space-x-3">
+                            <img src="logo.png" alt="Alpha Medonus Logo" class="h-9 w-auto object-contain" width="36" height="36" loading="eager">
+                            </div>
+
+                        <div class="hidden md:flex items-center space-x-8 font-roboto-flex">
+                            <a href="#products" class="text-gray-900 hover:text-amber-600 transition-colors text-sm font-medium">Products</a>
+                            <a href="#contact" class="text-gray-900 hover:text-amber-600 transition-colors text-sm font-medium">Contact</a>
+                        </div>
+
+                        <button id="mobile-menu-button" class="md:hidden text-gray-900 focus:outline-none" aria-label="Toggle mobile menu" aria-expanded="false">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div id="mobile-menu" class="mobile-menu md:hidden w-full text-center font-roboto-flex" aria-hidden="true">
+                        <a href="#home" class="block py-2 text-gray-900 hover:text-amber-600 transition-colors border-t border-gray-200">Home</a>
+                        <a href="#about" class="block py-2 text-gray-900 hover:text-amber-600 transition-colors border-t border-gray-200">About Us</a>
+                        <a href="#coffees" class="block py-2 text-gray-900 hover:text-amber-600 transition-colors border-t border-gray-200">Coffees</a>
+                        <a href="#gallery" class="block py-2 text-gray-900 hover:text-amber-600 transition-colors border-t border-gray-200">Gallery</a>
+                        <a href="#products" class="block py-2 text-gray-900 hover:text-amber-600 transition-colors border-t border-gray-200">Products</a>
+                        <a href="#contact" class="block py-2 text-gray-900 hover:text-amber-600 transition-colors border-t border-gray-200">Contact</a>
+                    </div>
                 </div>
-                <span class="font-bold hidden md:block text-2xl">Alpha Medonus Coffee</span>
-                <button id="mobile-menu-button" class="md:hidden text-gray-600">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
             </div>
-            <nav class="hidden md:flex space-x-20 mt-4">
-                <a href="#home" class="text-gray-600 hover:text-blue-900">Home</a>
-                <a href="#about" class="text-gray-600 hover:text-blue-900">About Us</a>
-                <a href="#coffees" class="text-gray-600 hover:text-blue-900">Coffees</a>
-                <a href="#gallery" class="text-gray-600 hover:text-blue-900">Gallery</a>
-                <a href="#products" class="text-gray-600 hover:text-blue-900">Products</a>
-                <a href="#contact" class="text-gray-600 hover:text-blue-900">Contact</a>
-            </nav>
-            <nav id="mobile-menu" class="mobile-menu md:flex space-y-4 md:space-y-0 md:space-x-20 mt-4 w-full md:w-auto text-center">
-                <a href="#home" class="block py-2 text-gray-600 hover:text-blue-900">Home</a>
-                <a href="#about" class="block py-2 text-gray-600 hover:text-blue-900">About Us</a>
-                <a href="#coffees" class="block py-2 text-gray-600 hover:text-blue-900">Coffees</a>
-                <a href="#gallery" class="block py-2 text-gray-600 hover:text-blue-900">Gallery</a>
-                <a href="#products" class="block py-2 text-gray-600 hover:text-blue-900">Products</a>
-                <a href="#contact" class="block py-2 text-gray-600 hover:text-blue-900">Contact</a>
-            </nav>
-        </div>
+        </nav>
     </header>
-    <!-- Hero Section with Image Slider -->
-    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
-        <!-- Image Slider -->
-        <div class="absolute inset-0">
-            <div class="relative h-full w-full">
-                <!-- Slide 1 -->
-                <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100">
-                    <img src="aboutImg1.avif" alt="Coffee farm in Ethiopia" class="w-full h-full object-cover">
-                </div>
-                <!-- Slide 2 -->
-                <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0">
-                    <img src="aboutImg2.avif" alt="Harvesting coffee cherries" class="w-full h-full object-cover">
-                </div>
-                <!-- Slide 3 -->
-                <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0">
-                    <img src="aboutImg3.avif" alt="Coffee roasting process" class="w-full h-full object-cover">
+
+    <main id="main-content">
+        <!-- Hero Section with Image Slider -->
+        <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden mr-2 ml-2 rounded -mt-5">
+            <div class="absolute inset-0">
+                <img src="bg3.png" alt="Coffee farm in Ethiopia" class="hero-bg-image h-full w-full object-cover" loading="eager" width="1920" height="1080">
+            </div>
+            
+            <div class="absolute backdrop-blur-sm"></div>
+            
+            <div class="container mx-auto px-6 text-center z-10 text-[#D95C15] pt-12">
+                <div class="max-w-4xl mx-auto">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                        <span class="text-white">Premium</span> Ethiopian Coffee, <br> 
+                        <span class="text-white">Global</span> Standards
+                    </h1>
+                    
+                    <p class="text-xl md:text-2xl font-light mb-10 max-w-2xl mx-auto leading-relaxed text-white">
+                        Sustainably sourced from the highlands of Ethiopia, roasted to perfection, and delivered worldwide.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row justify-center gap-4 pb-14 md:pb-0">
+                        <a href="#coffees" class="px-8 py-3 bg-white text-orange-600 hover:bg-orange-50 font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-orange-600">
+                            Explore Our Coffees
+                        </a>
+                        <a href="#contact" class="px-8 py-3 bg-transparent border-2 border-white hover:bg-white/10 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-orange-600">
+                            Contact Us
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- Subtle Overlay -->
-        <div class="absolute inset-0 bg-[#D95C15]/20 backdrop-blur-sm"></div>
-        
-        <!-- Content -->
-        <div class="container mx-auto px-6 text-center z-10 text-white">
-            <div class="max-w-4xl mx-auto">
-                <!-- Headline -->
-                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                    <span class="text-[#D95C15]">Premium</span> Ethiopian Coffee, <br> 
-                    <span class="text-[#D95C15]">Global</span> Standards
-                </h1>
+        </section>
+
+        <!-- Counter Section -->
+        <section class="bg-gray-50 text-gray-800 py-12">
+            <div class="container mx-auto px-10 sm:px-6 lg:px-8">
+                <div class="flex flex-wrap justify-around text-center -mx-4">
+                    <div class="w-1/2 md:w-1/5 mb-8 md:mb-0 px-4">
+                        <h3 class="text-4xl font-bold counter-value text-amber-600" data-target="1200">0</h3>
+                        <p class="text-lg">Coffee Varieties</p>
+                    </div>
+                    <div class="w-1/2 md:w-1/5 mb-8 md:mb-0 px-4">
+                        <h3 class="text-4xl font-bold counter-value text-amber-600" data-target="25">0</h3>
+                        <p class="text-lg">Years Experience</p>
+                    </div>
+                    <div class="w-1/2 md:w-1/5 mb-8 md:mb-0 px-4">
+                        <h3 class="text-4xl font-bold counter-value text-amber-600" data-target="98">0</h3>
+                        <p class="text-lg">Satisfaction Rate %</p>
+                    </div>
+                    <div class="w-1/2 md:w-1/5 mb-8 md:mb-0 px-4">
+                        <h3 class="text-4xl font-bold counter-value text-amber-600" data-target="50">0</h3>
+                        <p class="text-lg">Global Partners</p>
+                    </div>
+                    <div class="w-1/2 md:w-1/5 mb-8 md:mb-0 px-4">
+                        <h3 class="text-4xl font-bold counter-value text-amber-600" data-target="24">0</h3>
+                        <p class="text-lg">Hour Support</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About us section -->
+        <section id="about" class="py-16 md:py-24 bg-white mx-4 rounded-xl p-5 mt-10 md:mt-0">
+            <div class="container px-10 flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2 text-center md:text-left order-1 md:order-1">
+                    <span class="text-amber-600 font-medium mb-2 block">Our Heritage</span>
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6">Ethiopian Coffee Legacy</h2>
+                    <div class="space-y-6">
+                        <p class="text-gray-600 leading-relaxed text-center md:text-justify">
+                            In Ethiopia's fertile highlands, where coffee was born, we cultivate exceptional beans with generations of expertise. As a family-owned business, we honor traditions while innovating to meet global standards.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed text-center md:text-justify">
+                            Our collective of farmers—family and neighbors alike—tend each plant with meticulous care. The volcanic soil, ideal altitude, and perfect climate combine to create coffee with unparalleled complexity and character.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed text-center md:text-justify">
+                            We partner with discerning buyers worldwide who value traceability, quality, and the story behind each bean. Our coffee carries the soul of our community—a testament to generations of dedication to this craft.
+                        </p>
+                    </div>
+                    <div class="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
+                        <button class="px-6 py-3 bg-amber-600 hover:bg-amber-700 text-white rounded-lg transition duration-300 shadow-md focus:outline-none focus:ring-2 focus:ring-amber-600 focus:ring-offset-2">
+                            Our Farming Process
+                        </button>
+                        <button class="px-6 py-3 border border-amber-600 text-amber-600 hover:bg-amber-600/10 rounded-lg transition duration-300 focus:outline-none focus:ring-2 focus:ring-amber-600 focus:ring-offset-2">
+                            Meet Our Farmers
+                        </button>
+                    </div>
+                </div>
+
+                <div class="md:w-1/2 order-2 md:order-2 w-full">
+                    <div class="relative w-full max-w-xl mx-auto rounded-xl overflow-hidden shadow-2xl">
+                        <div class="relative h-80 md:h-96 w-full overflow-hidden">
+                            <div class="absolute inset-0 flex transition-transform duration-700 ease-in-out" id="carousel-slides">
+                                <img src="aboutImg1.avif" alt="Coffee farming scene 1" class="w-full h-full object-cover flex-shrink-0" loading="lazy" width="800" height="600">
+                                <img src="aboutImg2.avif" alt="Coffee farming scene 2" class="w-full h-full object-cover flex-shrink-0" loading="lazy" width="800" height="600">
+                                <img src="aboutImg3.avif" alt="Coffee farming scene 3" class="w-full h-full object-cover flex-shrink-0" loading="lazy" width="800" height="600">
+                                <img src="aboutImg4.avif" alt="Coffee farming scene 4" class="w-full h-full object-cover flex-shrink-0" loading="lazy" width="800" height="600">
+                                <img src="aboutImg5.avif" alt="Coffee farming scene 5" class="w-full h-full object-cover flex-shrink-0" loading="lazy" width="800" height="600">
+                            </div>
+                        </div>
+
+                        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+                            <button class="w-3 h-3 rounded-lg bg-white/50 hover:bg-white transition duration-300 carousel-dot" data-index="0" aria-label="Go to slide 1"></button>
+                            <button class="w-3 h-3 rounded-lg bg-white/50 hover:bg-white transition duration-300 carousel-dot" data-index="1" aria-label="Go to slide 2"></button>
+                            <button class="w-3 h-3 rounded-lg bg-white/50 hover:bg-white transition duration-300 carousel-dot" data-index="2" aria-label="Go to slide 3"></button>
+                            <button class="w-3 h-3 rounded-lg bg-white/50 hover:bg-white transition duration-300 carousel-dot" data-index="3" aria-label="Go to slide 4"></button>
+                            <button class="w-3 h-3 rounded-lg bg-white/50 hover:bg-white transition duration-300 carousel-dot" data-index="4" aria-label="Go to slide 5"></button>
+                        </div>
+
+                        <button class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-lg transition duration-300 z-10 carousel-prev focus:outline-none focus:ring-2 focus:ring-white" aria-label="Previous slide">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                        <button class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-lg transition duration-300 z-10 carousel-next focus:outline-none focus:ring-2 focus:ring-white" aria-label="Next slide">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our coffee section -->
+        <section id="coffees" class="py-16 md:py-20 bg-gray-50 mt-10 md:mt-0">
+            <div class="container mx-auto px-4 text-center flex flex-col space-y-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-amber-600">Our Coffee Products</h2>
+                <div class="max-w-6xl mx-auto">
+                    <div class="flex flex-wrap justify-center gap-2 mb-8">
+                        <!-- Coffee tabs -->
+                        <button class="coffee-tab px-6 py-2 rounded-lg border border-amber-600 text-amber-600 font-medium transition-all duration-300 hover:bg-amber-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-amber-600 focus:ring-offset-2" data-tab="sidama">
+                            Sidama
+                        </button>
+                        <button class="coffee-tab px-6 py-2 rounded-lg border border-amber-600 text-amber-600 font-medium transition-all duration-300 hover:bg-amber-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-amber-600 focus:ring-offset-2" data-tab="yirgacheffe">
+                            Yirgacheffe
+                        </button>
+                        <button class="coffee-tab px-6 py-2 rounded-lg border border-amber-600 text-amber-600 font-medium transition-all duration-300 hover:bg-amber-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-amber-600 focus:ring-offset-2" data-tab="harrar">
+                            Harrar
+                        </button>
+                        <button class="coffee-tab px-6 py-2 rounded-lg border border-amber-600 text-amber-600 font-medium transition-all duration-300 hover:bg-amber-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-amber-600 focus:ring-offset-2" data-tab="limu">
+                            Limu
+                        </button>
+                        <button class="coffee-tab px-6 py-2 rounded-lg border border-amber-600 text-amber-600 font-medium transition-all duration-300 hover:bg-amber-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-amber-600 focus:ring-offset-2" data-tab="djimma">
+                            Djimma
+                        </button>
+                        <button class="coffee-tab px-6 py-2 rounded-lg border border-amber-600 text-amber-600 font-medium transition-all duration-300 hover:bg-amber-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-amber-600 focus:ring-offset-2" data-tab="lekempti">
+                            Lekempti
+                        </button>
+                    </div>
+
+                    <div id="coffee-content-container" class="relative min-h-[300px]">
+                        <!-- Coffee content will be dynamically inserted here by JavaScript -->
+                    </div>
+                </div>
                 
-                <!-- Subheadline -->
-                <p class="text-xl md:text-2xl font-light mb-10 max-w-2xl mx-auto leading-relaxed">
-                    Sustainably sourced from the highlands of Ethiopia, roasted to perfection, and delivered worldwide.
-                </p>
-                
-                <!-- CTA Buttons -->
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#coffees" class="px-8 py-3 bg-[#D95C15] hover:bg-[#C04B0A] text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
-                        Explore Our Coffees
-                    </a>
-                    <a href="#contact" class="px-8 py-3 bg-transparent border-2 border-white hover:bg-white/10 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105">
-                        Contact Us
-                    </a>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 px-10">
+                    <div class="bg-white p-8 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 border border-amber-600/20">
+                        <h3 class="text-2xl font-bold text-amber-600 mb-4">Quality</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4 text-center md:text-justify">
+                            Coffee quality is the result of a careful, intentional process that spans across multiple stages, each one influencing the final cup.
+                        </p>
+                        <p class="text-gray-600 text-sm text-center md:text-justify"> We give great attention from the very beginning, attention to detail is crucial, ensuring that the plant is nurtured with care and that it produces cherries of the highest potential. </p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 border border-amber-600/20">
+                        <h3 class="text-2xl font-bold text-amber-600 mb-4">Consistent</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4 text-center md:text-justify"> At the heart of great coffee is consistency ensuring that each step is executed with care, expertise, and attention to detail. </p>
+                        <p class="text-gray-600 text-sm text-center md:text-justify"> So we can prepare the same level of quality of coffee every year. This ensures traceability and quality every single crop we produce. We engage in long-term supplying of our coffee with our clients. </p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 border border-amber-600/20">
+                        <h3 class="text-2xl font-bold text-amber-600 mb-4">Community-Based Farming Practices</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4 text-center md:text-justify"> We strongly emphasize on community-based farming practices, ensuring that both the land and the people who work on it thrive. </p>
+                        <ul class="text-gray-600 text-sm list-disc list-inside text-left">
+                            <li>Empowering Local Farmers</li>
+                            <li>Community Investment</li>
+                            <li>Women's Empowerment</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- counter -->
-    <section class="bg-amber-50 text-gray-800 py-12">
-        <div class="container mx-auto flex flex-wrap justify-around text-center">
-            <div class="w-1/2 md:w-1/5 mb-8 md:mb-0">
-                <h3 class="text-4xl font-bold counter-value text-[#D95C15]" data-target="1200">0</h3>
-                <p class="text-lg">Coffee Varieties</p>
-            </div>
-            <div class="w-1/2 md:w-1/5 mb-8 md:mb-0">
-                <h3 class="text-4xl font-bold counter-value text-[#D95C15]" data-target="25">0</h3>
-                <p class="text-lg">Years Experience</p>
-            </div>
-            <div class="w-1/2 md:w-1/5 mb-8 md:mb-0">
-                <h3 class="text-4xl font-bold counter-value text-[#D95C15]" data-target="98">0</h3>
-                <p class="text-lg">Satisfaction Rate %</p>
-            </div>
-            <div class="w-1/2 md:w-1/5 mb-8 md:mb-0">
-                <h3 class="text-4xl font-bold counter-value text-[#D95C15]" data-target="50">0</h3>
-                <p class="text-lg">Global Partners</p>
-            </div>
-            <div class="w-1/2 md:w-1/5 mb-8 md:mb-0">
-                <h3 class="text-4xl font-bold counter-value text-[#D95C15]" data-target="24">0</h3>
-                <p class="text-lg">Hour Support</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Us Section with Image Slider (Tailwind CSS only for styling) -->
-    <section id="about" class="py-16 md:py-24 bg-white">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
-            <!-- Left Content Area for About Us Text -->
-            <div class="md:w-1/2 text-center md:text-left order-2 md:order-1">
-                <span class="text-[#D95C15] font-medium mb-2 block">Our Heritage</span>
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6">Ethiopian Coffee Legacy</h2>
-                <div class="space-y-6">
-                    <p class="text-gray-600 leading-relaxed">
-                        In Ethiopia's fertile highlands, where coffee was born, we cultivate exceptional beans with generations of expertise. As a family-owned business, we honor traditions while innovating to meet global standards.
-                    </p>
-                    <p class="text-gray-600 leading-relaxed">
-                        Our collective of farmers—family and neighbors alike—tend each plant with meticulous care. The volcanic soil, ideal altitude, and perfect climate combine to create coffee with unparalleled complexity and character.
-                    </p>
-                    <p class="text-gray-600 leading-relaxed">
-                        We partner with discerning buyers worldwide who value traceability, quality, and the story behind each bean. Our coffee carries the soul of our community—a testament to generations of dedication to this craft.
-                    </p>
-                </div>
-                <div class="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
-                    <button class="px-6 py-3 bg-[#D95C15] hover:bg-[#C04B0A] text-white rounded-lg transition duration-300 shadow-md">
-                        Our Farming Process
-                    </button>
-                    <button class="px-6 py-3 border border-[#D95C15] text-[#D95C15] hover:bg-[#D95C15]/10 rounded-lg transition duration-300">
-                        Meet Our Farmers
-                    </button>
+        <!-- Our Certifications Section -->
+        <section id="certifications" class="py-16 bg-white">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-amber-600 mb-12">Our Certifications</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                    <div class="flex flex-col items-center p-4 rounded-lg bg-gray-50 hover:shadow-xl transition duration-300">
+                        <img src="medonusTrading.avif" alt="Medonus Trading Logo" class="h-24 object-contain mb-2" loading="lazy" width="150" height="96">
+                        <p class="text-sm font-medium text-gray-700">Medonus Trading PLC</p>
+                    </div>
+                    <div class="flex flex-col items-center p-4 rounded-lg bg-gray-50 hover:shadow-xl transition duration-300">
+                        <img src="medonusHealth.avif" alt="Medonus Health Logo" class="h-24 object-contain mb-2" loading="lazy" width="150" height="96">
+                        <p class="text-sm font-medium text-gray-700">Medonus Health</p>
+                    </div>
+                    <div class="flex flex-col items-center p-4 rounded-lg bg-gray-50 hover:shadow-xl transition duration-300">
+                        <img src="carelink.avif" alt="Carelink Logo" class="h-24 object-contain mb-2" loading="lazy" width="150" height="96">
+                        <p class="text-sm font-medium text-gray-700">Carelink Global</p>
+                    </div>
+                    <div class="flex flex-col items-center p-4 rounded-lg bg-gray-50 hover:shadow-xl transition duration-300">
+                        <img src="womenInCoffee.avif" alt="Women In Coffee Logo" class="h-24 object-contain mb-2" loading="lazy" width="150" height="96">
+                        <p class="text-sm font-medium text-gray-700">Women In Coffee</p>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Right Image Carousel Area -->
-            <div class="md:w-1/2 order-1 md:order-2 w-full">
-                <div class="relative w-full max-w-xl mx-auto rounded-xl overflow-hidden shadow-2xl">
-                    <!-- Carousel Container -->
-                    <div class="relative h-80 md:h-96 w-full overflow-hidden">
-                        <!-- Images Wrapper - Adjusted to flex row and full width -->
-                        <div class="absolute inset-0 flex transition-transform duration-700 ease-in-out" id="carousel-slides">
-                            <!-- Each image should be 100% width and fit its container -->
-                            <img src="aboutImg1.avif"
-                                alt="Coffee farming scene 1"
-                                class="w-full h-full object-cover flex-shrink-0">
-                            <img src="aboutImg2.avif"
-                                alt="Coffee farming scene 2"
-                                class="w-full h-full object-cover flex-shrink-0">
-                            <img src="aboutImg3.avif"
-                                alt="Coffee farming scene 3"
-                                class="w-full h-full object-cover flex-shrink-0">
-                            <img src="aboutImg4.avif"
-                                alt="Coffee farming scene 4"
-                                class="w-full h-full object-cover flex-shrink-0">
-                            <img src="aboutImg5.avif"
-                                alt="Coffee farming scene 5"
-                                class="w-full h-full object-cover flex-shrink-0">
+        <!-- Our Partners Section -->
+        <section id="partners" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-amber-600 mb-12">Our Partners</h2>
+                <div class="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
+                    <div class="flex flex-col items-center justify-center p-4 rounded-lg bg-white hover:shadow-xl transition duration-300 w-full sm:w-1/2 md:w-1/4">
+                        <img src="afca.avif" alt="AFCA Logo" class="h-24 object-contain mb-2" loading="lazy" width="150" height="96">
+                        <p class="text-sm font-medium text-gray-700">AFCA</p>
+                    </div>
+                    <div class="flex flex-col items-center justify-center p-4 rounded-lg bg-white hover:shadow-xl transition duration-300 w-full sm:w-1/2 md:w-1/4">
+                        <img src="ethioBuna.avif" alt="Ethio Buna Logo" class="h-24 object-contain mb-2" loading="lazy" width="150" height="96">
+                        <p class="text-sm font-medium text-gray-700">Ethio Buna</p>
+                    </div>
+                    <div class="flex flex-col items-center justify-center p-4 rounded-lg bg-white hover:shadow-xl transition duration-300 w-full sm:w-1/2 md:w-1/4">
+                        <img src="ecx.avif" alt="ECX Logo" class="h-24 object-contain mb-2" loading="lazy" width="150" height="96">
+                        <p class="text-sm font-medium text-gray-700">ECX</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-12 px-4 md:px-8 lg:px-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <h1 class="text-3xl md:text-4xl font-bold text-amber-600 text-center mb-12">Our Gallery</h1>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-1">
+                    <!-- Gallery items with lazy loading -->
+                    <div class="w-full aspect-square overflow-hidden bg-gray-100" onclick="openModal('galleryImg1.avif', 'Coffee Farm')">
+                        <img src="galleryImg12.avif" alt="Coffee Farm" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer" loading="lazy" width="400" height="400">
+                    </div>
+                    <div class="w-full aspect-square overflow-hidden bg-gray-100" onclick="openModal('galleryImg2.avif', 'Coffee Harvest')">
+                        <img src="galleryImg14.avif" alt="Coffee Harvest" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer" loading="lazy" width="400" height="400">
+                    </div>
+                    <div class="w-full aspect-square overflow-hidden bg-gray-100" onclick="openModal('galleryImg3.avif', 'Coffee Processing')">
+                        <img src="galleryImg15.avif" alt="Coffee Processing" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer" loading="lazy" width="400" height="400">
+                    </div>
+                    <div class="w-full aspect-square overflow-hidden bg-gray-100" onclick="openModal('galleryImg4.avif', 'Drying Coffee Beans')">
+                        <img src="galleryImg16.avif" alt="Drying Coffee Beans" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer" loading="lazy" width="400" height="400">
+                    </div>
+                    <div class="w-full aspect-square overflow-hidden bg-gray-100" onclick="openModal('galleryImg5.avif', 'Coffee Roasting')">
+                        <img src="galleryImg17.avif" alt="Coffee Roasting" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer" loading="lazy" width="400" height="400">
+                    </div>
+                    <div class="w-full aspect-square overflow-hidden bg-gray-100" onclick="openModal('galleryImg6.avif', 'Roasted Coffee')">
+                        <img src="galleryImg18.avif" alt="Roasted Coffee" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer" loading="lazy" width="400" height="400">
+                    </div>
+                    <div class="w-full aspect-square overflow-hidden bg-gray-100" onclick="openModal('galleryImg7.avif', 'Sacks of Green Beans')">
+                        <img src="galleryImg19.avif" alt="Sacks of Green Beans" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer" loading="lazy" width="400" height="400">
+                    </div>
+                    <div class="w-full aspect-square overflow-hidden bg-gray-100" onclick="openModal('galleryImg8.avif', 'Women in Coffee')">
+                        <img src="galleryImg13.avif" alt="Women in Coffee" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer" loading="lazy" width="400" height="400">
+                    </div>
+                    <!-- <div class="w-full aspect-square overflow-hidden bg-gray-100" onclick="openModal('galleryImg9.avif', 'Cupping Session')">
+                        <img src="galleryImg9.avif" alt="Cupping Session" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer" loading="lazy" width="400" height="400">
+                    </div>
+                    <div class="w-full aspect-square overflow-hidden bg-gray-100" onclick="openModal('galleryImg10.avif', 'Quality Control')">
+                        <img src="galleryImg10.avif" alt="Quality Control" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer" loading="lazy" width="400" height="400">
+                    </div>
+                    <div class="w-full aspect-square overflow-hidden bg-gray-100" onclick="openModal('galleryImg11.avif', 'Coffee Tasting')">
+                        <img src="galleryImg11.avif" alt="Coffee Tasting" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer" loading="lazy" width="400" height="400">
+                    </div>
+                    <div class="w-full aspect-square overflow-hidden bg-gray-100" onclick="openModal('galleryImg12.avif', 'Coffee Packaging')">
+                        <img src="galleryImg12.avif" alt="Coffee Packaging" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer" loading="lazy" width="400" height="400">
+                    </div> -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+     <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-8">
+                <div class="text-center mb-16">
+                    <span class="inline-block text-amber-600 font-medium mb-3">Get In Touch</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Contact Our Coffee Experts</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        Have questions about our coffee varieties or interested in wholesale partnerships? 
+                        Our team is ready to assist you with any inquiries.
+                    </p>
+                </div>
+
+                <div class="flex flex-col lg:flex-row gap-12">
+                    <!-- Contact Form -->
+                    <div class="lg:w-1/2">
+                        <div class="bg-white rounded-xl shadow-lg p-8 md:p-10">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-6">Send Us a Message</h3>
+                            <form id="contact-form" class="space-y-6">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                                        <input type="text" id="name" name="name" required 
+                                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 transition duration-300">
+                                    </div>
+                                    <div>
+                                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                                        <input type="email" id="email" name="email" required 
+                                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 transition duration-300">
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                                    <select id="subject" name="subject" 
+                                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 transition duration-300">
+                                        <option value="general">General Inquiry</option>
+                                        <option value="wholesale">Wholesale Inquiry</option>
+                                        <option value="partnership">Partnership Opportunity</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Your Message</label>
+                                    <textarea id="message" name="message" rows="5" required 
+                                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 transition duration-300"></textarea>
+                                </div>
+                                
+                                <button type="submit" 
+                                    class="w-full px-6 py-3 bg-amber-600 hover:bg-amber-700 text-white font-semibold rounded-lg transition duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-amber-600 focus:ring-offset-2">
+                                    Send Message
+                                </button>
+                            </form>
                         </div>
                     </div>
 
-                    <!-- Navigation Dots -->
-                    <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
-                        <button class="w-3 h-3 rounded-lg bg-white/50 hover:bg-white transition duration-300 carousel-dot" data-index="0"></button>
-                        <button class="w-3 h-3 rounded-lg bg-white/50 hover:bg-white transition duration-300 carousel-dot" data-index="1"></button>
-                        <button class="w-3 h-3 rounded-lg bg-white/50 hover:bg-white transition duration-300 carousel-dot" data-index="2"></button>
-                        <button class="w-3 h-3 rounded-lg bg-white/50 hover:bg-white transition duration-300 carousel-dot" data-index="3"></button>
-                        <button class="w-3 h-3 rounded-lg bg-white/50 hover:bg-white transition duration-300 carousel-dot" data-index="4"></button>
+                    <!-- Contact Information -->
+                    <div class="lg:w-1/2">
+                        <div class="bg-white rounded-xl shadow-lg p-8 md:p-10 h-full">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-6">Contact Information</h3>
+                            
+                            <div class="space-y-6">
+                                <!-- Address -->
+                                <div class="flex items-start">
+                                    <div class="bg-amber-100 p-3 rounded-full mr-4 flex-shrink-0">
+                                        <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800 mb-1">Our Headquarters</h4>
+                                        <p class="text-gray-600">
+                                            Bole Sub-City, Woreda 03<br>
+                                            House Number 773<br>
+                                            Addis Ababa, Ethiopia
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Phone -->
+                                <div class="flex items-start">
+                                    <div class="bg-amber-100 p-3 rounded-full mr-4 flex-shrink-0">
+                                        <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800 mb-1">Phone & WhatsApp</h4>
+                                        <p class="text-gray-600">
+                                            <a href="tel:+251911697780" class="hover:text-amber-600 transition">+251 91 169 7780</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Email -->
+                                <div class="flex items-start">
+                                    <div class="bg-amber-100 p-3 rounded-full mr-4 flex-shrink-0">
+                                        <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800 mb-1">Email Us</h4>
+                                        <p class="text-gray-600">
+                                            <a href="mailto:info@alphamedonus.com" class="hover:text-amber-600 transition">info@alphamedonus.com</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Hours -->
+                                <div class="flex items-start">
+                                    <div class="bg-amber-100 p-3 rounded-full mr-4 flex-shrink-0">
+                                        <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800 mb-1">Business Hours</h4>
+                                        <p class="text-gray-600">
+                                            Monday - Friday: 8:00 AM - 5:00 PM<br>
+                                            Saturday: 9:00 AM - 2:00 PM<br>
+                                            Sunday: Closed
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Divider -->
+                            <div class="border-t border-gray-200 my-8"></div>
+                            
+                            <!-- Social Media -->
+                            <!-- <div>
+                                <h4 class="font-medium text-gray-800 mb-4">Connect With Us</h4>
+                                <div class="flex space-x-4">
+                                    <a href="#" class="bg-gray-100 hover:bg-amber-100 p-3 rounded-full transition duration-300" aria-label="Facebook">
+                                        <svg class="w-5 h-5 text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+                                            <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </a>
+                                    <a href="#" class="bg-gray-100 hover:bg-amber-100 p-3 rounded-full transition duration-300" aria-label="Instagram">
+                                        <svg class="w-5 h-5 text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+                                            <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.058 1.064.049 1.791.218 1.857.344.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 3.807.058h.468c2.456 0 2.784-.011 3.807-.058.975-.045 1.504-.207 1.857-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-3.807v-.468c0-2.456-.011-2.784-.058-3.807-.045-.975-.207-1.504-.344-1.857a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </a>
+                                    <a href="#" class="bg-gray-100 hover:bg-amber-100 p-3 rounded-full transition duration-300" aria-label="LinkedIn">
+                                        <svg class="w-5 h-5 text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+                                            <path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </a>
+                                    <a href="#" class="bg-gray-100 hover:bg-amber-100 p-3 rounded-full transition duration-300" aria-label="Twitter">
+                                        <svg class="w-5 h-5 text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div> -->
+                        </div>
                     </div>
-
-                    <!-- Navigation Arrows -->
-                    <button class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-lg transition duration-300 z-10 carousel-prev">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                        </svg>
-                    </button>
-                    <button class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-lg transition duration-300 z-10 carousel-next">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </button>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Our coffee section -->
-    <section id="coffees" class="py-16 md:py-20 bg-amber-50">
-        <div class="container mx-auto px-4 text-center flex flex-col space-y-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-[#D95C15]">Our Coffee Products</h2>
-            <div class="max-w-6xl mx-auto">
-                <div class="flex flex-wrap justify-center gap-2 mb-8">
-                    <button class="coffee-tab px-6 py-2 rounded-lg border border-[#D95C15] text-[#D95C15] font-medium transition-all duration-300 hover:bg-[#D95C15] hover:text-white" data-tab="sidama">
-                        Sidama
-                    </button>
-                    <button class="coffee-tab px-6 py-2 rounded-lg border border-[#D95C15] text-[#D95C15] font-medium transition-all duration-300 hover:bg-[#D95C15] hover:text-white" data-tab="yirgacheffe">
-                        Yirgacheffe
-                    </button>
-                    <button class="coffee-tab px-6 py-2 rounded-lg border border-[#D95C15] text-[#D95C15] font-medium transition-all duration-300 hover:bg-[#D95C15] hover:text-white" data-tab="harrar">
-                        Harrar
-                    </button>
-                    <button class="coffee-tab px-6 py-2 rounded-lg border border-[#D95C15] text-[#D95C15] font-medium transition-all duration-300 hover:bg-[#D95C15] hover:text-white" data-tab="limu">
-                        Limu
-                    </button>
-                    <button class="coffee-tab px-6 py-2 rounded-lg border border-[#D95C15] text-[#D95C15] font-medium transition-all duration-300 hover:bg-[#D95C15] hover:text-white" data-tab="djimma">
-                        Djimma
-                    </button>
-                    <button class="coffee-tab px-6 py-2 rounded-lg border border-[#D95C15] text-[#D95C15] font-medium transition-all duration-300 hover:bg-[#D95C15] hover:text-white" data-tab="lekempti">
-                        Lekempti
-                    </button>
+    <!-- Footer -->
+   <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
+        <div class="container mx-auto px-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 mb-12">
+                <div class="md:col-span-1 text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start mb-4">
+                        <img src="logo.png" alt="Alpha Medonus Logo" class="h-10 w-auto mr-3">
+                        <span class="font-sansation font-bold text-white text-xl">Alpha Medonus</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        Bringing the finest Ethiopian coffee to the world, with a commitment to quality and sustainability.
+                    </p>
+                    <!-- <div class="flex space-x-4 justify-center md:justify-start">
+                        <a href="#" class="text-gray-400 hover:text-amber-500 transition duration-300" aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-amber-500 transition duration-300" aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.058 1.064.049 1.791.218 1.857.344.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 3.807.058h.468c2.456 0 2.784-.011 3.807-.058.975-.045 1.504-.207 1.857-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-3.807v-.468c0-2.456-.011-2.784-.058-3.807-.045-.975-.207-1.504-.344-1.857a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-amber-500 transition duration-300" aria-label="Twitter">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-amber-500 transition duration-300" aria-label="LinkedIn">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </div> -->
                 </div>
 
-                <div id="coffee-content-container" class="relative min-h-[300px]">
-                </div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                <div class="bg-white p-8 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 border border-[#D95C15]/20">
-                    <h3 class="text-2xl font-bold text-[#D95C15] mb-4">Quality</h3>
-                    <p class="text-gray-700 leading-relaxed mb-4">
-                        Coffee quality is the result of a careful, intentional process that spans across multiple stages, each one influencing the final cup.
-                    </p>
-                    <p class="text-gray-600 text-sm">
-                        We give great attention from the very beginning, attention to detail is crucial, ensuring that the plant is nurtured with care and that it produces cherries of the highest potential.
-                    </p>
-                </div>
-
-                <div class="bg-white p-8 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 border border-[#D95C15]/20">
-                    <h3 class="text-2xl font-bold text-[#D95C15] mb-4">Consistent</h3>
-                    <p class="text-gray-700 leading-relaxed mb-4">
-                        At the heart of great coffee is consistency—ensuring that each step is executed with care, expertise, and attention to detail.
-                    </p>
-                    <p class="text-gray-600 text-sm">
-                        So we can prepare the same level of quality of coffee every year. This ensures traceability and quality every single crop we produce. We engage in long-term supplying of our coffee with our clients.
-                    </p>
-                </div>
-
-                <div class="bg-white p-8 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 border border-[#D95C15]/20">
-                    <h3 class="text-2xl font-bold text-[#D95C15] mb-4">Community-Based Farming Practices</h3>
-                    <p class="text-gray-700 leading-relaxed mb-4">
-                        We strongly emphasize on community-based farming practices, ensuring that both the land and the people who work on it thrive.
-                    </p>
-                    <ul class="text-gray-600 text-sm list-disc list-inside text-left">
-                        <li>Empowering Local Farmers</li>
-                        <li>Community Investment</li>
-                        <li>Women's Empowerment</li>
+                <div class="text-center md:text-left md:ms-20">
+                    <h4 class="font-sansation text-white text-lg font-bold mb-5">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-amber-500 transition duration-300">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-amber-500 transition duration-300">About Us</a></li>
+                        <li><a href="#coffees" class="text-gray-400 hover:text-amber-500 transition duration-300">Our Coffees</a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-amber-500 transition duration-300">Gallery</a></li>
+                        <li><a href="#certifications" class="text-gray-400 hover:text-amber-500 transition duration-300">Certifications</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-amber-500 transition duration-300">Contact</a></li>
                     </ul>
                 </div>
-            </div>
-        </div>
-    </section>
 
-   <section id="gallery" class="py-12 px-4 md:px-8 lg:px-16 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <h1 class="text-3xl md:text-4xl font-bold text-[#D95C15] text-center mb-12 relative after:content-[''] after:block after:w-24 after:h-1 after:bg-secondary after:mx-auto after:mt-4">
-                Our Gallery
-            </h1>
-
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-1">
-                <!-- Gallery Item 1 -->
-                <div class="w-full aspect-square overflow-hidden bg-gray-100" onclick="openModal('galleryImg1.avif', '')">
-                    <img src="galleryImg1.avif" alt="Coffee Farm" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer">
+                <div class="text-center md:text-left md:ms-5">
+                    <h4 class="font-sansation text-white text-lg font-bold mb-5">Our Coffees</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-amber-500 transition duration-300">Sidama</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-amber-500 transition duration-300">Yirgacheffe</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-amber-500 transition duration-300">Harrar</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-amber-500 transition duration-300">Limu</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-amber-500 transition duration-300">Djimma</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-amber-500 transition duration-300">Lekempti</a></li>
+                    </ul>
                 </div>
 
-                <!-- Gallery Item 2 -->
-                <div class="w-full aspect-square overflow-hidden bg-gray-100" onclick="openModal('galleryImg2.avif', '')">
-                    <img src="galleryImg2.avif" alt="Coffee Harvest" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer">
-                </div>
-
-                <!-- Gallery Item 3 -->
-                <div class="w-full aspect-square overflow-hidden bg-gray-100" onclick="openModal('galleryImg3.avif', '')">
-                    <img src="galleryImg3.avif" alt="Coffee Processing" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer">
-                </div>
-
-                <!-- Gallery Item 4 -->
-                <div class="w-full aspect-square overflow-hidden bg-gray-100" onclick="openModal('galleryImg4.avif', '')">
-                    <img src="galleryImg4.avif" alt="Green Beans" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer">
-                </div>
-
-                <!-- Gallery Item 5 -->
-                <div class="w-full aspect-square overflow-hidden bg-gray-100" onclick="openModal('galleryImg5.avif', '')">
-                    <img src="galleryImg5.avif" alt="Coffee Roasting" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer">
-                </div>
-
-                <!-- Gallery Item 6 -->
-                <div class="w-full aspect-square overflow-hidden bg-gray-100" onclick="openModal('galleryImg6.avif', '')">
-                    <img src="galleryImg6.avif" alt="Coffee Cupping" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer">
-                </div>
-
-                <!-- Gallery Item 7 -->
-                <div class="w-full aspect-square overflow-hidden bg-gray-100" onclick="openModal('galleryImg7.avif', '')">
-                    <img src="galleryImg7.avif" alt="Ethiopian Ceremony" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer">
-                </div>
-
-                <!-- Gallery Item 8 -->
-                <div class="w-full aspect-square overflow-hidden bg-gray-100" onclick="openModal('galleryImg8.avif', '')">
-                    <img src="galleryImg8.avif" alt="Drying Beds" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer">
-                </div>
-
-                <!-- Gallery Item 9 -->
-                <div class="w-full aspect-square overflow-hidden bg-gray-100" onclick="openModal('galleryImg9.avif', '')">
-                    <img src="galleryImg9.avif" alt="Farm View" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer">
-                </div>
-
-                <!-- Gallery Item 10 -->
-                <div class="w-full aspect-square overflow-hidden bg-gray-100" onclick="openModal('galleryImg10.avif', '')">
-                    <img src="galleryImg10.avif" alt="Coffee Sacks" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer">
-                </div>
-
-                <!-- Gallery Item 11 -->
-                <div class="w-full aspect-square overflow-hidden bg-gray-100" onclick="openModal('galleryImg11.avif', '')">
-                    <img src="galleryImg11.avif" alt="Coffee Plant" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Image Modal -->
-    <div id="imageModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/90 opacity-0 transition-opacity duration-300 ease-in-out p-4">
-        <div class="relative w-full max-w-6xl max-h-[90vh] transition-all duration-300 ease-in-out transform scale-95 opacity-0">
-            <button onclick="closeModal()" 
-                    class="absolute -top-12 right-0 bg-white rounded-lg w-10 h-10 flex items-center justify-center text-gray-800 text-xl font-bold hover:bg-gray-200 transition-colors z-50 shadow-md">
-                &times;
-            </button>
-            <img id="modalImage" src="" alt="Full size image" class="w-full max-h-[90vh] object-contain mx-auto">
-        </div>
-    </div>
-
-    <!-- Products/Services Section -->
-    <section id="products" class="py-16 px-4 md:px-8 lg:px-16 bg-gradient-to-br from-white to-gray-50">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-[#D95C15] text-center mb-6 md:mb-8">Our Innovative Solutions</h2>
-            <p class="text-lg text-center text-gray-600 mb-12 md:mb-16 max-w-3xl mx-auto leading-relaxed">
-                we are Updating Our Import products Check the Hospital Projects
-            </p>
-
-            <div class="space-y-12 md:space-y-16">
-                <!-- Product Item 1 -->
-                <div class="product-card flex flex-col md:flex-row items-center p-6 md:p-8">
-                    <div class="product-image-container w-full md:w-1/2 lg:w-2/5 mb-6 md:mb-0 md:mr-8 flex-shrink-0">
-                        <img src="productsImg1.avif" alt="Advanced Machinery" class="w-full h-full object-cover rounded-lg">
-                    </div>
-                    <div class="flex-grow text-center md:text-left">
-                        <h3 class="text-3xl font-bold text-gray-800 mb-3">Precision Engineering Equipment</h3>
-                        <p class="text-gray-600 leading-relaxed text-lg">
-                            Our state-of-the-art machinery is built for unparalleled accuracy and efficiency, ideal for high-stakes industrial applications. Featuring cutting-edge robotics and intuitive controls, it streamlines operations and boosts productivity.
-                        </p>
-                        <ul class="list-disc list-inside text-gray-500 mt-4 space-y-1">
-                            <li>High-accuracy automated systems</li>
-                            <li>Energy-efficient operations</li>
-                            <li>Robust and durable construction</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Product Item 2 (Alternating layout) -->
-                <div class="product-card flex flex-col md:flex-row-reverse items-center p-6 md:p-8">
-                    <div class="product-image-container w-full md:w-1/2 lg:w-2/5 mb-6 md:mb-0 md:ml-8 flex-shrink-0">
-                        <img src="productsImg2.avif" alt="Software Solution Interface" class="w-full h-full object-cover rounded-lg">
-                    </div>
-                    <div class="flex-grow text-center md:text-right">
-                        <h3 class="text-3xl font-bold text-gray-800 mb-3">Intuitive Cloud-Based Software</h3>
-                        <p class="text-gray-600 leading-relaxed text-lg">
-                            Simplify your workflow with our secure and scalable cloud software. Designed for seamless integration and real-time data access, it empowers teams to collaborate effectively from anywhere.
-                        </p>
-                        <ul class="list-disc list-inside text-gray-500 mt-4 space-y-1">
-                            <li>Secure data encryption</li>
-                            <li>Scalable for growing businesses</li>
-                            <li>24/7 technical support</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Product Item 3 -->
-                <div class="product-card flex flex-col md:flex-row items-center p-6 md:p-8">
-                    <div class="product-image-container w-full md:w-1/2 lg:w-2/5 mb-6 md:mb-0 md:mr-8 flex-shrink-0">
-                        <img src="productsImg3.avif" alt="Consulting Services Meeting" class="w-full h-full object-cover rounded-lg">
-                    </div>
-                    <div class="flex-grow text-center md:text-left">
-                        <h3 class="text-3xl font-bold text-gray-800 mb-3">Strategic Business Consulting</h3>
-                        <p class="text-gray-600 leading-relaxed text-lg">
-                            Unlock your business's full potential with our expert consulting services. We provide tailored strategies and actionable insights to navigate complex markets and achieve sustainable growth.
-                        </p>
-                        <ul class="list-disc list-inside text-gray-500 mt-4 space-y-1">
-                            <li>Market analysis and insights</li>
-                            <li>Operational efficiency improvements</li>
-                            <li>Customized growth strategies</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Product Item 4 (Alternating layout) -->
-                <div class="product-card flex flex-col md:flex-row-reverse items-center p-6 md:p-8">
-                    <div class="product-image-container w-full md:w-1/2 lg:w-2/5 mb-6 md:mb-0 md:ml-8 flex-shrink-0">
-                        <img src="productsImg4.avif" alt="Customer Support Team" class="w-full h-full object-cover rounded-lg">
-                    </div>
-                    <div class="flex-grow text-center md:text-right">
-                        <h3 class="text-3xl font-bold text-gray-800 mb-3">Dedicated Customer Support</h3>
-                        <p class="text-gray-600 leading-relaxed text-lg">
-                            Experience peace of mind with our round-the-clock customer support. Our dedicated team is ready to assist you with any queries or challenges, ensuring a smooth and productive experience.
-                        </p>
-                        <ul class="list-disc list-inside text-gray-500 mt-4 space-y-1">
-                            <li>24/7 multilingual support</li>
-                            <li>Rapid response times</li>
-                            <li>Comprehensive knowledge base access</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Product Item 5 -->
-                <div class="product-card flex flex-col md:flex-row items-center p-6 md:p-8">
-                    <div class="product-image-container w-full md:w-1/2 lg:w-2/5 mb-6 md:mb-0 md:mr-8 flex-shrink-0">
-                        <img src="productsImg5.avif" alt="Consulting Services Meeting" class="w-full h-full object-cover rounded-lg">
-                    </div>
-                    <div class="flex-grow text-center md:text-left">
-                        <h3 class="text-3xl font-bold text-gray-800 mb-3">Strategic Business Consulting</h3>
-                        <p class="text-gray-600 leading-relaxed text-lg">
-                            Unlock your business's full potential with our expert consulting services. We provide tailored strategies and actionable insights to navigate complex markets and achieve sustainable growth.
-                        </p>
-                        <ul class="list-disc list-inside text-gray-500 mt-4 space-y-1">
-                            <li>Market analysis and insights</li>
-                            <li>Operational efficiency improvements</li>
-                            <li>Customized growth strategies</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Product Item 6 (Alternating layout) -->
-                <div class="product-card flex flex-col md:flex-row-reverse items-center p-6 md:p-8">
-                    <div class="product-image-container w-full md:w-1/2 lg:w-2/5 mb-6 md:mb-0 md:ml-8 flex-shrink-0">
-                        <img src="productsImg6.avif" alt="Customer Support Team" class="w-full h-full object-cover rounded-lg">
-                    </div>
-                    <div class="flex-grow text-center md:text-right">
-                        <h3 class="text-3xl font-bold text-gray-800 mb-3">Dedicated Customer Support</h3>
-                        <p class="text-gray-600 leading-relaxed text-lg">
-                            Experience peace of mind with our round-the-clock customer support. Our dedicated team is ready to assist you with any queries or challenges, ensuring a smooth and productive experience.
-                        </p>
-                        <ul class="list-disc list-inside text-gray-500 mt-4 space-y-1">
-                            <li>24/7 multilingual support</li>
-                            <li>Rapid response times</li>
-                            <li>Comprehensive knowledge base access</li>
-                        </ul>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-16 bg-amber-50">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row items-start justify-between">
-            <!-- Contact Information Column -->
-            <div class="md:w-1/2 p-8">
-                <h2 class="text-4xl font-bold text-gray-800 mb-6">Contact Us</h2>
-                <p class="text-gray-600 mb-8">Get in touch with our business group for trading, healthcare, and medical equipment inquiries.</p>
-                
-                <div class="grid grid-cols-2">
-                    <!-- Address Section -->
-                    <div class="flex items-start space-x-4">
-                        <svg class="w-6 h-6 text-[#D95C15] mt-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
-                        </svg>
-                        <div>
-                            <h4 class="font-semibold text-gray-800 mb-2">Address</h4>
-                            <p class="text-gray-600">
-                                <strong>Jacros-Yere RD</strong><br>
-                                MDK big 701<br>
-                                Addis Ababa, Ethiopia
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <!-- Contact Section -->
-                    <div class="flex items-start space-x-4">
-                        <svg class="w-6 h-6 text-[#D95C15] mt-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.996.836l1.248 7.311a1 1 0 01-.264.912l-1.637 1.637a1 1 0 00-.263.912l.142.142a1 1 0 00.912.263l1.637-1.637a1 1 0 01.912-.264l7.311 1.248a1 1 0 01.836.996V17a1 1 0 01-1 1h-2a1 1 0 01-1-1v-2l-3-3-2-2-3-3v-2a1 1 0 011-1z"></path>
-                        </svg>
-                        <div>
-                            <h4 class="font-semibold text-gray-800 mb-2">Contact</h4>
-                            <ul class="text-gray-600 space-y-1">
-                                <li>+251 904544444</li>
-                                <li>+251 926095003</li>
-                                <li>+251 922469245</li>
-                                <li>+971 582058926</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Hours Section -->
-                    <div class="flex items-start space-x-4">
-                        <svg class="w-6 h-6 text-[#D95C15] mt-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
-                        </svg>
-                        <div>
-                            <h4 class="font-semibold text-gray-800 mb-2">Opening Hours</h4>
-                            <table class="text-gray-600">
-                                <tr>
-                                    <td class="pr-4 py-1">Mon - Fri</td>
-                                    <td>8:30 am – 5:30 pm</td>
-                                </tr>
-                                <tr>
-                                    <td class="pr-4 py-1">Sat</td>
-                                    <td>8:30 am – 11:30 pm</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Map and Form Column -->
-            <div class="md:w-1/2 p-8 space-y-8">
-                <!-- Map Section -->
-                <div class="rounded-xl overflow-hidden shadow-lg">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.755363733653!2d38.76341531536231!3d9.0226218935411!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85b3c3e9f5a5%3A0x3a3b3b3b3b3b3b3b!2sJacros-Yere%20RD%2C%20Addis%20Ababa!5e0!3m2!1sen!2set!4v1620000000000!5m2!1sen!2set" 
-                        width="100%" 
-                        height="300" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy"
-                        class="rounded-xl"
-                    ></iframe>
-                </div>
-                
-                <!-- Contact Form -->
-                <form class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <input type="text" placeholder="First Name" class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <input type="text" placeholder="Last Name" class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <input type="email" placeholder="Email Address" class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <input type="tel" placeholder="Phone Number" class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    </div>
-                    <select class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <option value="">Select Department</option>
-                        <option>Medonus Trading</option>
-                        <option>Medonus Healthcare</option>
-                        <option>CareLink Medical Equipment</option>
-                        <option>General Inquiry</option>
-                    </select>
-                    <textarea placeholder="Your Message" rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                    <button type="submit" class="w-full px-6 py-3 bg-[#D95C15] text-white font-semibold rounded-lg hover:bg-[#D95C15] transition duration-300">
-                        Send Message
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <footer style="background-color: #171717;" class="text-gray-200">
-        <div class="bg-white text-gray-200 py-16 px-8">
-            <div class="container mx-auto">
-                <div class="text-center mb-12">
-                    <!-- Company Logo and Text in same row -->
-                    <div class="flex justify-center items-center mb-8 space-x-2">
-                        <img src="logo.png" alt="Alpha Medonus Business Group Logo">
-                        <h3 class="text-3xl font-bold text-[#D95C15]">Alpha Medonus Business Group</h3>
-                    </div>
-                    
-                    <!-- Business Division Logos -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
-                        <div class="flex flex-col items-center p-4">
-                            <img src="medonusTrading.avif" alt="MEDONUS TRADING Logo" class="h-20 mb-2">
-                        </div>
-                        <div class="flex flex-col items-center p-4">
-                            <img src="medonusHealth.avif" alt="MEDONUS HEALTHCARE Logo" class="h-20 mb-2">
-                        </div>
-                        <div class="flex flex-col items-center p-4">
-                            <img src="carelink.avif" alt="CARELINK MEDICAL EQUIPMENT TRADING Logo" class="h-20 mb-2">
-                        </div>
-                    </div>
-
-                    <p class="text-[#D95C15] text-3xl max-w-2xl mx-auto mb-8">
-                        Proud Member of
+                <div class="text-center md:text-left">
+                    <h4 class="font-sansation text-white text-lg font-bold mb-5">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">
+                        Subscribe to our newsletter for the latest updates, offers, and coffee insights.
                     </p>
-                </div>
-
-                <!-- Member Organization Logos -->
-                <div class="grid grid-cols-2 sm:grid-cols-4 max-w-4xl mx-auto items-center justify-items-center">
-                    <div class="flex flex-col items-center">
-                        <img src="womenInCoffee.avif" alt="Women in Coffee Logo" class="h-16">
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <img src="afca.avif" alt="TRIOHA COMMUNITY ECKIN Logo" class="h-16">
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <img src="ethioBuna.avif" alt="AFRICAN PURE COFFEE & ASSOCIATION Logo" class="h-16">
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <img src="ecx.avif" alt="AFRICAN PURE COFFEE & ASSOCIATION Logo" class="h-16">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container mx-auto py-12 px-8 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 border-b border-gray-700">
-            <div class="col-span-1">
-                <h3 class="text-2xl font-bold text-white mb-4">Alpha Medonus Business Group</h3>
-                <div class="text-sm space-y-2 text-gray-400">
-                    <p>Email: dawli@alpha-medonus.com</p>
-                    <p>Phone: +251 904544444</p>
-                    <p>Address: Jacros-Yere Rd MDK bid</p>
-                    <p>Addis Ababa, Ethiopia</p>
+                    <form class="flex flex-col space-y-3">
+                        <input type="email" placeholder="Your email address" class="px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-amber-500 focus:outline-none text-white">
+                        <button type="submit" class="px-4 py-3 bg-amber-600 hover:bg-amber-700 text-white font-medium rounded-lg transition duration-300">
+                            Subscribe
+                        </button>
+                    </form>
                 </div>
             </div>
 
-            <div>
-                <h4 class="font-bold text-lg mb-4">BUSINESS DIVISIONS</h4>
-                <ul class="space-y-2 text-sm text-gray-400">
-                    <li><a href="#" class="hover:text-white">Coffee</a></li>
-                    <li><a href="#" class="hover:text-white">Hospital Projects</a></li>
-                    <li><a href="#" class="hover:text-white">Medical Equipment</a></li>
-                </ul>
-            </div>
-            
-            <div>
-                <h4 class="font-bold text-lg mb-4">COFFEE PRODUCTS</h4>
-                <ul class="space-y-2 text-sm text-gray-400">
-                    <li><a href="#coffees" class="hover:text-white">Sidama</a></li>
-                    <li><a href="#coffees" class="hover:text-white">Yirgacheffe</a></li>
-                    <li><a href="#coffees" class="hover:text-white">Harrar</a></li>
-                    <li><a href="#coffees" class="hover:text-white">Limu</a></li>
-                </ul>
-            </div>
-            
-            <div>
-                <h4 class="font-bold text-lg mb-4">QUICK LINKS</h4>
-                <nav class="flex flex-col space-y-2 text-sm text-gray-400">
-                    <a href="#home" class="hover:text-white">Home</a>
-                    <a href="#about" class="hover:text-white">About Us</a>
-                    <a href="#coffees" class="hover:text-white">Coffees</a>
-                    <a href="#gallery" class="hover:text-white">Gallery</a>
-                    <a href="#products" class="hover:text-white">Products</a>
-                    <a href="#contact" class="hover:text-white">Contact</a>
-                </nav>
-            </div>
-        </div>
+            <div class="border-t border-gray-800 my-8"></div>
 
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center py-4 px-8 text-sm">
-            <div class="flex items-center space-x-2 text-gray-400 mb-4 md:mb-0">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
-                </svg>
-                <span>Addis Ababa, Ethiopia</span>
-            </div>
-            
-            <div class="flex flex-wrap justify-center gap-4 text-gray-400 mb-4 md:mb-0">
-                <a href="#" class="hover:text-white">Terms of Service</a>
-                <a href="#" class="hover:text-white">Privacy Policy</a>
-                <a href="#" class="hover:text-white">Accessibility</a>
-                <a href="#" class="hover:text-white">Disclaimer</a>
-            </div>
-            
-            <div class="text-gray-400">
-                <p>© 2025 Alpha Medonus Business Group. All rights reserved.</p>
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-gray-500 text-sm mb-4 md:mb-0 text-center md:text-left">
+                    &copy; 2024 Alpha Medonus Business Group. All rights reserved.
+                </div>
+                <div class="flex space-x-6 justify-center md:justify-start">
+                    <a href="#" class="text-gray-500 hover:text-amber-500 text-sm transition duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-500 hover:text-amber-500 text-sm transition duration-300">Terms of Service</a>
+                    <a href="#" class="text-gray-500 hover:text-amber-500 text-sm transition duration-300">Sitemap</a>
+                </div>
             </div>
         </div>
     </footer>
 
-</body>
-<script>
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', function() {
-            mobileMenu.classList.toggle('open');
-        });
-        
-        // Close mobile menu when clicking on a link
-        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-        mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                mobileMenu.classList.remove('open');
+    <!-- Image Modal -->
+    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-75 z-[100] hidden flex items-center justify-center opacity-0 transition-opacity duration-300">
+        <div class="relative bg-white rounded-lg p-4 shadow-xl max-w-3xl w-full m-4 transform scale-95 opacity-0 transition-all duration-300">
+            <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-800 text-3xl leading-none font-bold p-2 hover:text-gray-600 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500" aria-label="Close modal">&times;</button>
+            <img id="modalImage" src="" alt="" class="w-full h-auto rounded-lg max-h-[80vh] object-contain">
+            <p id="modalCaption" class="text-center mt-2 text-gray-700"></p>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="fixed inset-0 bg-black bg-opacity-50 z-[200] flex items-center justify-center hidden">
+        <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-amber-600"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', function() {
+                const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+                mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+                mobileMenu.setAttribute('aria-hidden', isExpanded);
+                mobileMenu.classList.toggle('open');
             });
-    });
 
-    document.addEventListener('DOMContentLoaded', function() {
-        const slides = document.querySelectorAll('.absolute.inset-0.transition-opacity');
-        let currentSlide = 0;
-        
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('opacity-100', i === index);
-                slide.classList.toggle('opacity-0', i !== index);
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('open');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    mobileMenu.setAttribute('aria-hidden', 'true');
+                });
             });
-        }
-        
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-        
-        // Change slide every 5 seconds
-        setInterval(nextSlide, 5000);
-        
-        // Initialize first slide
-        showSlide(0);
-    });
-        // Counter animation
-        document.addEventListener('DOMContentLoaded', function() {
-            const counters = document.querySelectorAll('.counter-value');
-            const speed = 200;
 
-            counters.forEach(counter => {
-                const updateCount = () => {
-                    const target = +counter.getAttribute('data-target');
-                    const count = +counter.innerText;
+            // Hero section image carousel
+            const heroImages = document.querySelectorAll('#home .hero-bg-image');
+            let currentHeroImageIndex = 0;
 
-                    const increment = target / speed;
+            function changeHeroImage() {
+                heroImages[currentHeroImageIndex].classList.remove('opacity-100');
+                heroImages[currentHeroImageIndex].classList.add('opacity-0');
+                currentHeroImageIndex = (currentHeroImageIndex + 1) % heroImages.length;
+                heroImages[currentHeroImageIndex].classList.remove('opacity-0');
+                heroImages[currentHeroImageIndex].classList.add('opacity-100');
+            }
 
-                    if (count < target) {
-                        counter.innerText = Math.ceil(count + increment);
-                        setTimeout(updateCount, 1);
+            let heroInterval = setInterval(changeHeroImage, 5000); // Change image every 5 seconds
+
+            // Pause hero carousel when not in view
+            const heroObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        heroInterval = setInterval(changeHeroImage, 5000);
                     } else {
-                        counter.innerText = target;
+                        clearInterval(heroInterval);
                     }
-                };
-                updateCount();
-            });
+                });
+            }, { threshold: 0.1 });
 
-            // Carousel functionality
+            heroObserver.observe(document.getElementById('home'));
+
+            // About us section carousel
             const carousel = document.getElementById('carousel-slides');
             const dots = document.querySelectorAll('.carousel-dot');
-            const prevBtn = document.querySelector('.carousel-prev');
-            const nextBtn = document.querySelector('.carousel-next');
-            const totalSlides = document.querySelectorAll('#carousel-slides img').length;
+            const prevButton = document.querySelector('.carousel-prev');
+            const nextButton = document.querySelector('.carousel-next');
             let currentIndex = 0;
-            let interval;
+            let intervalId;
+            const numImages = carousel.children.length;
 
             function updateCarousel() {
-                const offset = -currentIndex * 100;
-                carousel.style.transform = `translateX(${offset}%)`;
-
+                carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
                 dots.forEach((dot, index) => {
                     if (index === currentIndex) {
-                        dot.classList.add('bg-white');
-                        dot.classList.remove('bg-white/50');
+                        dot.style.backgroundColor = 'white';
                     } else {
-                        dot.classList.remove('bg-white');
-                        dot.classList.add('bg-white/50');
+                        dot.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
                     }
                 });
             }
 
-            function startAutoRotate() {
-                interval = setInterval(() => {
-                    currentIndex = (currentIndex + 1) % totalSlides;
-                    updateCarousel();
-                }, 5000);
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % numImages;
+                updateCarousel();
             }
 
-            function resetAutoRotate() {
-                clearInterval(interval);
-                startAutoRotate();
+            function startCarousel() {
+                stopCarousel();
+                intervalId = setInterval(nextSlide, 3000); // Auto-advance every 3 seconds
             }
+
+            function stopCarousel() {
+                clearInterval(intervalId);
+            }
+
+            nextButton.addEventListener('click', () => {
+                nextSlide();
+                stopCarousel();
+            });
+
+            prevButton.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + numImages) % numImages;
+                updateCarousel();
+                stopCarousel();
+            });
 
             dots.forEach(dot => {
-                dot.addEventListener('click', () => {
-                    currentIndex = parseInt(dot.getAttribute('data-index'));
+                dot.addEventListener('click', (e) => {
+                    currentIndex = parseInt(e.target.dataset.index);
                     updateCarousel();
-                    resetAutoRotate();
+                    stopCarousel();
                 });
             });
 
-            prevBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-                updateCarousel();
-                resetAutoRotate();
+            // Pause carousel when not in view
+            const carouselObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        startCarousel();
+                    } else {
+                        stopCarousel();
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            carouselObserver.observe(carousel.parentElement.parentElement);
+
+            // Intersection Observer for the counter
+            const counters = document.querySelectorAll('.counter-value');
+            
+            const animateCounter = (counter) => {
+                const target = +counter.getAttribute('data-target');
+                let count = 0;
+                const increment = target / 200; // Adjust the divisor for animation speed
+
+                const updateCounter = () => {
+                    count += increment;
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.innerText = target + '+';
+                    }
+                };
+                updateCounter();
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.5 // The animation starts when 50% of the element is visible
             });
 
-            nextBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex + 1) % totalSlides;
-                updateCarousel();
-                resetAutoRotate();
+            counters.forEach(counter => {
+                observer.observe(counter);
             });
 
-            updateCarousel();
-            startAutoRotate();
+            // Tabs for coffee products
+            const coffeeTabs = document.querySelectorAll('.coffee-tab');
+            const coffeeContentContainer = document.getElementById('coffee-content-container');
 
-            const carouselParent = carousel.parentElement;
-            if (carouselParent) {
-                carouselParent.addEventListener('mouseenter', () => {
-                    clearInterval(interval);
-                });
-
-                carouselParent.addEventListener('mouseleave', () => {
-                    startAutoRotate();
-                });
-            }
-
-            // Coffee tabs functionality
-            const coffees = {
+            const coffeeData = {
                 sidama: {
-                    name: 'SIDAMA',
-                    image: 'https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1287&q=80',
-                    description: [
-                        'Grown in Ethiopia\'s Sidama region at elevations between 1,500-2,200 meters, known for its distinctive flavor profile.',
-                        'The high altitude, cooler temperatures, and rich volcanic soil contribute to complex flavors and vibrant acidity.'
-                    ],
-                    flavorProfile: 'Citrus and berry notes with floral undertones and a clean, crisp finish. Medium to light body with bright acidity.'
+                    title: 'Sidama Coffee',
+                    description: 'Sidama coffee is celebrated for its balanced body and sweet, spicy aroma. Cultivated in the Sidama region of Ethiopia, it is a washed coffee known for its distinct citrus and floral character. The region\'s high altitudes and rich, fertile soil contribute to a complex flavor profile that includes notes of lemon, jasmine, and caramel. Our Sidama coffee is ethically sourced and meticulously processed to preserve its unique taste and aroma.',
+                    imageSrc: 'https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1287&q=80',
+                    alt: 'Sidama coffee beans from Ethiopia',
+                    tastingNotes: ['Citrus', 'Jasmine', 'Caramel', 'Medium body', 'Bright acidity'],
+                    elevation: '1500-2200m',
+                    process: 'Washed'
                 },
                 yirgacheffe: {
-                    name: 'YIRGACHEFFE',
-                    image: 'https://images.unsplash.com/photo-1442512595331-e89e73853f31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
-                    description: [
-                        'From Ethiopia\'s famous Yirgacheffe region, grown at 1,700-2,200 meters, renowned for its floral and citrus characteristics.',
-                        'The combination of perfect climate and traditional processing methods creates a uniquely delicate cup.'
-                    ],
-                    flavorProfile: 'Distinct floral aromas with lemon and bergamot notes, medium body, and tea-like characteristics with a clean finish.'
+                    title: 'Yirgacheffe Coffee',
+                    description: 'Yirgacheffe coffee is famous for its bright, clean, and floral flavor profile, often with a hint of jasmine and bergamot. It is a wet-processed coffee from the Yirgacheffe region, where it is grown at some of the highest altitudes in Ethiopia. The beans are known for their small size but big, vibrant taste. Our Yirgacheffe is a testament to the region\'s rich heritage and commitment to producing some of the world\'s most sought-after coffee.',
+                    imageSrc: 'https://images.unsplash.com/photo-1442512595331-e89e73853f31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
+                    alt: 'Yirgacheffe coffee beans from Ethiopia',
+                    tastingNotes: ['Floral', 'Bergamot', 'Lemon', 'Light body', 'High acidity'],
+                    elevation: '1700-2200m',
+                    process: 'Washed'
                 },
                 harrar: {
-                    name: 'HARRAR',
-                    image: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
-                    description: [
-                        'From Ethiopia\'s eastern highlands, grown at 1,500-2,000 meters, known for its bold, fruity flavors and dry processing.',
-                        'The arid climate and traditional dry-processing create a distinctive winey quality and complex fruit notes.'
-                    ],
-                    flavorProfile: 'Blueberry and dark chocolate notes with a wine-like acidity, full body, and a long, complex finish.'
+                    title: 'Harrar Coffee',
+                    description: 'Harrar is a wild, fruity, and bold coffee with a full body and a lingering finish. Grown in the Eastern Ethiopian highlands, it is a dry-processed coffee that often carries notes of blueberry, cocoa, and wine. The dry processing method gives it a distinctive, complex flavor that is highly prized by connoisseurs. Our Harrar coffee embodies the wild, untamed spirit of the region it comes from.',
+                    imageSrc: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
+                    alt: 'Harrar coffee beans from Ethiopia',
+                    tastingNotes: ['Blueberry', 'Cocoa', 'Winey', 'Full body', 'Low acidity'],
+                    elevation: '1400-2000m',
+                    process: 'Natural'
                 },
                 limu: {
-                    name: 'LIMU',
-                    image: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?ixlib=rb-4.0.3&auto=format&fit=crop&w=1169&q=80',
-                    description: [
-                        'From Ethiopia\'s southwestern highlands, grown at 1,100-1,900 meters, known for its balanced cup and spicy notes.',
-                        'The region\'s medium altitude and careful wet-processing create a clean, well-balanced coffee with good acidity.'
-                    ],
-                    flavorProfile: 'Balanced with winey and spicy notes, medium acidity, good body, and floral aromas with a clean aftertaste.'
+                    title: 'Limu Coffee',
+                    description: 'Limu coffee is a high-quality washed coffee grown in the southwest of Ethiopia. It is known for its balanced body and delicate, sweet flavor with a spicy and wine-like taste. The beans are medium-sized with a distinct green-blue color. Our Limu coffee is carefully cultivated to bring out its smooth, well-rounded character and subtle notes of citrus and chocolate.',
+                    imageSrc: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?ixlib=rb-4.0.3&auto=format&fit=crop&w=1169&q=80',
+                    alt: 'Limu coffee beans from Ethiopia',
+                    tastingNotes: ['Citrus', 'Chocolate', 'Spicy', 'Medium body', 'Balanced acidity'],
+                    elevation: '1100-1900m',
+                    process: 'Washed'
                 },
                 djimma: {
-                    name: 'DJIMMA',
-                    image: 'https://images.unsplash.com/photo-1507133750040-4a8f57021571?ixlib=rb-4.0.3&auto=format&fit=crop&w=1287&q=80',
-                    description: [
-                        'From Ethiopia\'s western region, grown at 1,400-2,100 meters, producing a distinctive heavy-bodied coffee.',
-                        'The region\'s fertile soil and traditional processing methods create a coffee with deep, complex flavors.'
-                    ],
-                    flavorProfile: 'Earthy and spicy with notes of dark chocolate, full body, low acidity, and a long, lingering finish.'
+                    title: 'Djimma Coffee',
+                    description: 'Djimma coffee is a wild and heavy-bodied coffee grown in the lowlands of Ethiopia. It is often dry-processed, which gives it a distinct fruity and wine-like flavor. While some coffee experts describe it as having an earthy or medicinal taste, our Djimma is selected for its smooth, pleasant, and full-bodied character, making it a great choice for a strong and satisfying brew.',
+                    imageSrc: 'https://images.unsplash.com/photo-1507133750040-4a8f57021571?ixlib=rb-4.0.3&auto=format&fit=crop&w=1287&q=80',
+                    alt: 'Djimma coffee beans from Ethiopia',
+                    tastingNotes: ['Fruity', 'Winey', 'Earthy', 'Full body', 'Medium acidity'],
+                    elevation: '1200-1800m',
+                    process: 'Natural'
                 },
                 lekempti: {
-                    name: 'LEKEMPTI',
-                    image: 'https://images.unsplash.com/photo-1514890547357-a9ee288728e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-                    description: [
-                        'From Ethiopia\'s western Wollega region, grown at 1,500-2,100 meters, known for its fruity and floral characteristics.',
-                        'The region\'s unique microclimate produces a coffee with bright acidity and complex fruit notes.'
-                    ],
-                    flavorProfile: 'Bright acidity with tropical fruit and floral notes, medium body, and a clean, sweet finish.'
-                }
+                    title: 'Lekempti Coffee',
+                    description: 'Lekempti coffee is a washed or dry-processed coffee from the Wollega region of Ethiopia. It is known for its pungent and tangy flavor profile, often with a heavy body and a uniquely wild, fruity taste. Our Lekempti coffee is chosen for its vibrant and distinctive character, offering a memorable and complex cup for those who appreciate bold flavors.',
+                    imageSrc: 'https://images.unsplash.com/photo-1514890547357-a9ee288728e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+                    alt: 'Lekempti coffee beans from Ethiopia',
+                    tastingNotes: ['Tangy', 'Fruity', 'Wild', 'Heavy body', 'Medium acidity'],
+                    elevation: '1500-2100m',
+                    process: 'Washed/Natural'
+                },
             };
-            
-            const tabs = document.querySelectorAll('.coffee-tab');
-            const contentContainer = document.getElementById('coffee-content-container');
 
-            function updateContent(tabId) {
-                const coffeeData = coffees[tabId];
-                if (!coffeeData) return;
-
-                const contentHTML = `
-                    <div class="coffee-content grid grid-cols-1 md:grid-cols-2 bg-gradient-to-r from-[#FFF8F0] to-[#FEEED8] rounded-2xl overflow-hidden shadow-lg">
-                        <div class="h-64 md:h-96 bg-[#D95C15] relative overflow-hidden">
-                            <img src="${coffeeData.image}" alt="${coffeeData.name} coffee" class="w-full h-full object-cover opacity-90">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-6">
-                                <h3 class="text-3xl font-bold text-white">${coffeeData.name}</h3>
-                            </div>
-                        </div>
-                        <div class="p-8 md:p-10">
-                            <div class="mb-6">
-                                ${coffeeData.description.map(p => `<p class="text-gray-700 leading-relaxed mb-4">${p}</p>`).join('')}
-                            </div>
-                            <div class="bg-white p-4 rounded-lg border-l-4 border-[#D95C15]">
-                                <h4 class="font-bold text-[#D95C15] mb-2">FLAVOR PROFILE</h4>
-                                <p class="text-gray-700">${coffeeData.flavorProfile}</p>
-                            </div>
-                        </div>
-                    </div>
-                `;
+            function showCoffeeContent(tab) {
+                const content = coffeeData[tab];
+                if (!content) return;
                 
-                contentContainer.innerHTML = contentHTML;
+                // Show loading spinner
+                document.getElementById('loading-spinner').classList.remove('hidden');
+                
+                // Simulate loading delay (in a real app, this would be an actual image loading)
+                setTimeout(() => {
+                    coffeeContentContainer.innerHTML = `
+                        <div class="relative md:flex items-center text-left bg-white rounded-lg p-6 shadow-xl space-y-6 md:space-y-0 md:space-x-8 animate-fade-in">
+                            <div class="md:w-1/3">
+                                <img src="${content.imageSrc}" alt="${content.alt}" class="w-full h-full object-cover rounded-lg shadow-md" loading="lazy">
+                            </div>
+                            <div class="md:w-2/3">
+                                <h3 class="text-2xl font-bold text-amber-600 mb-4 text-center md:text-start">${content.title}</h3>
+                                <p class="text-gray-700 leading-relaxed mb-4 text-center md:text-justify">${content.description}</p>
+                                
+                                <div class="grid grid-cols-2 gap-4 mt-6">
+                                    <div>
+                                        <h4 class="font-medium text-gray-800">Tasting Notes</h4>
+                                        <ul class="text-sm text-gray-600 mt-2">
+                                            ${content.tastingNotes.map(note => `<li class="flex items-center"><span class="inline-block w-2 h-2 bg-amber-600 rounded-full mr-2"></span>${note}</li>`).join('')}
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800">Details</h4>
+                                        <ul class="text-sm text-gray-600 mt-2">
+                                            <li class="flex items-center"><span class="inline-block w-2 h-2 bg-amber-600 rounded-full mr-2"></span>Elevation: ${content.elevation}</li>
+                                            <li class="flex items-center"><span class="inline-block w-2 h-2 bg-amber-600 rounded-full mr-2"></span>Process: ${content.process}</li>
+                                            <li class="flex items-center"><span class="inline-block w-2 h-2 bg-amber-600 rounded-full mr-2"></span>Origin: Ethiopia</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <button class="ms-9 md:ms-0 mt-6 px-6 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-lg transition duration-300 shadow-md focus:outline-none focus:ring-2 focus:ring-amber-600 focus:ring-offset-2">
+                                    Request Samples
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Hide loading spinner
+                    document.getElementById('loading-spinner').classList.add('hidden');
+                    
+                    // Update active button styling
+                    coffeeTabs.forEach(t => t.classList.remove('bg-amber-600', 'text-white'));
+                    document.querySelector(`[data-tab="${tab}"]`).classList.add('bg-amber-600', 'text-white');
+                }, 500); // Simulated loading delay
             }
 
-            // Set first tab as active by default
-            if (tabs.length > 0) {
-                tabs[0].classList.add('bg-[#D95C15]', 'text-white');
-                tabs[0].classList.remove('text-[#D95C15]');
-                updateContent(tabs[0].getAttribute('data-tab'));
-            }
+            // Set initial content to Sidama
+            showCoffeeContent('sidama');
 
-            // Add click event listeners to all tabs
-            tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    const tabId = this.getAttribute('data-tab');
-                    
-                    // Update all tabs' appearance
-                    tabs.forEach(t => {
-                        t.classList.remove('bg-[#D95C15]', 'text-white');
-                        t.classList.add('text-[#D95C15]');
-                    });
-                    this.classList.add('bg-[#D95C15]', 'text-white');
-                    this.classList.remove('text-[#D95C15]');
-                    
-                    // Update the content
-                    updateContent(tabId);
+            coffeeTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabName = tab.getAttribute('data-tab');
+                    showCoffeeContent(tabName);
                 });
             });
+
+            // Image Modal Functions
+            function openModal(imageSrc, captionText) {
+                const modal = document.getElementById('imageModal');
+                const modalImg = document.getElementById('modalImage');
+                const modalCaption = document.getElementById('modalCaption');
+                const modalContent = modal.querySelector('div');
+                
+                // Show loading state
+                modalImg.src = '';
+                modalCaption.textContent = '';
+                
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                
+                // Load image
+                const img = new Image();
+                img.src = imageSrc;
+                img.alt = captionText;
+                img.onload = function() {
+                    modalImg.src = imageSrc;
+                    modalImg.alt = captionText;
+                    modalCaption.textContent = captionText;
+                    
+                    // Animate in
+                    setTimeout(() => {
+                        modal.classList.add('opacity-100');
+                        modalContent.classList.add('scale-100', 'opacity-100');
+                        modalContent.classList.remove('scale-95', 'opacity-0');
+                    }, 10);
+                };
+            }
+            
+            function closeModal() {
+                const modal = document.getElementById('imageModal');
+                const modalContent = modal.querySelector('div');
+                
+                modal.classList.remove('opacity-100');
+                modalContent.classList.remove('scale-100', 'opacity-100');
+                modalContent.classList.add('scale-95', 'opacity-0');
+                document.body.style.overflow = '';
+                
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                }, 300);
+            }
+            
+            // Close modal when clicking outside
+            document.getElementById('imageModal').addEventListener('click', function(e) {
+                if (e.target === this) closeModal();
+            });
+            
+            // Close with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === "Escape" && !document.getElementById('imageModal').classList.contains('hidden')) {
+                    closeModal();
+                }
+            });
+
+            // Form submission
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Show loading spinner
+                    const submitButton = this.querySelector('button[type="submit"]');
+                    const originalText = submitButton.textContent;
+                    submitButton.disabled = true;
+                    submitButton.innerHTML = '<span class="inline-block animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-white mr-2"></span> Sending...';
+                    
+                    // Simulate form submission
+                    setTimeout(() => {
+                        submitButton.textContent = 'Message Sent!';
+                        submitButton.classList.remove('bg-amber-600', 'hover:bg-amber-700');
+                        submitButton.classList.add('bg-green-600');
+                        
+                        // Reset form after 3 seconds
+                        setTimeout(() => {
+                            this.reset();
+                            submitButton.disabled = false;
+                            submitButton.textContent = originalText;
+                            submitButton.classList.add('bg-amber-600', 'hover:bg-amber-700');
+                            submitButton.classList.remove('bg-green-600');
+                        }, 3000);
+                    }, 1500);
+                });
+            }
+
+            // Lazy loading for images
+            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+            
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.dataset.src || img.src;
+                            img.classList.add('loaded');
+                            observer.unobserve(img);
+                        }
+                    });
+                }, {
+                    rootMargin: '200px 0px',
+                    threshold: 0.01
+                });
+
+                lazyImages.forEach(img => {
+                    if (!img.classList.contains('loaded')) {
+                        imageObserver.observe(img);
+                    }
+                });
+            }
+
+            // Expose functions to the global scope for onclick attributes
+            window.openModal = openModal;
+            window.closeModal = closeModal;
         });
-
-        function openModal(imageSrc, captionText) {
-        const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('modalImage');
-        const modalContent = modal.querySelector('div');
-
-        modalImg.src = imageSrc;
-        modal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-
-        setTimeout(() => {
-            modal.classList.add('opacity-100');
-            modalContent.classList.add('scale-100', 'opacity-100');
-            modalContent.classList.remove('scale-95', 'opacity-0');
-        }, 10);
-    }
-
-    function closeModal() {
-        const modal = document.getElementById('imageModal');
-        const modalContent = modal.querySelector('div');
-
-        modal.classList.remove('opacity-100');
-        modalContent.classList.remove('scale-100', 'opacity-100');
-        modalContent.classList.add('scale-95', 'opacity-0');
-        document.body.style.overflow = '';
-
-        setTimeout(() => {
-            modal.classList.add('hidden');
-        }, 300);
-    }
-
-    // Close modal when clicking outside
-    document.getElementById('imageModal').addEventListener('click', function(e) {
-        if (e.target === this) closeModal();
-    });
-
-    // Close with Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && !document.getElementById('imageModal').classList.contains('hidden')) {
-            closeModal();
-        }
-    });
     </script>
+    
+    <!-- Structured data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Alpha Medonus Business Group",
+        "url": "https://www.alphamedonus.com",
+        "logo": "https://www.alphamedonus.com/logo.png",
+        "description": "Premium Ethiopian coffee sourced from the highlands, roasted to perfection, and delivered worldwide.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Bole Sub-City, Woreda 03, House Number 773",
+            "addressLocality": "Addis Ababa",
+            "addressCountry": "Ethiopia"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+251-91-169-7780",
+            "contactType": "customer service",
+            "email": "info@alphamedonus.com",
+            "availableLanguage": ["English", "Amharic"]
+        },
+        "sameAs": [
+            "https://www.facebook.com/alphamedonus",
+            "https://www.instagram.com/alphamedonus",
+            "https://www.linkedin.com/company/alphamedonus"
+        ]
+    }
+    </script>
+</body>
 </html>
